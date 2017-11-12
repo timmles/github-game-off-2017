@@ -1,6 +1,6 @@
 # IntelliJ
 .idea
-*.iml
+github-game-off-2017.iml
 
 # Node.js
 node_modules

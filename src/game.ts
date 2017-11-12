@@ -10,7 +10,7 @@ import Title from './states/title';
 import * as Utils from './utils/utils';
 import * as Assets from './assets';
 
-class App extends Phaser.Game {
+class Game extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
         super (config);
 
@@ -42,7 +42,7 @@ function startApp(): void {
         resolution: 1
     };
 
-    let app = new App(gameConfig);
+    let game = new Game(gameConfig);
 }
 
 window.onload = () => {

@@ -9,6 +9,7 @@ import Preloader from './states/preloader';
 import Title from './states/title';
 import * as Utils from './utils/utils';
 import * as Assets from './assets';
+import {GamePlayState} from './states/GamePlayState';
 
 class Game extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -17,6 +18,7 @@ class Game extends Phaser.Game {
         this.state.add('boot', Boot);
         this.state.add('preloader', Preloader);
         this.state.add('title', Title);
+        this.state.add('game', GamePlayState);
 
         this.state.start('boot');
     }

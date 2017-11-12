@@ -1,7 +1,7 @@
 import * as Assets from '../assets';
 
 export default class Title extends Phaser.State {
-    private backgroundTemplateSprite: Phaser.Sprite = null;
+    private backgroundTitleSprite: Phaser.Sprite = null;
     private googleFontText: Phaser.Text = null;
     private localFontText: Phaser.Text = null;
     private pixelateShader: Phaser.Filter = null;
@@ -16,8 +16,8 @@ export default class Title extends Phaser.State {
     private sfxLaserSounds: any[] = null;
 
     public create(): void {
-        this.backgroundTemplateSprite = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesBackgroundTemplate.getName());
-        this.backgroundTemplateSprite.anchor.setTo(0.5);
+        this.backgroundTitleSprite = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesBackgroundTitle.getName());
+        this.backgroundTitleSprite.anchor.setTo(0.5);
 
         this.googleFontText = this.game.add.text(this.game.world.centerX, this.game.world.centerY - 100, 'Google Web Fonts', {
             font: '50px ' + Assets.GoogleWebFonts.Barrio
@@ -64,11 +64,17 @@ export default class Title extends Phaser.State {
 
         this.game.sound.play(Assets.Audio.AudioMusic.getName(), 0.2, true);
 
-        this.backgroundTemplateSprite.inputEnabled = true;
-        this.backgroundTemplateSprite.events.onInputDown.add(() => {
+        this.backgroundTitleSprite.inputEnabled = true;
+        this.backgroundTitleSprite.events.onInputDown.add(() => {
             this.sfxAudiosprite.play(Phaser.ArrayUtils.getRandomItem(this.sfxLaserSounds));
         });
 
         this.game.camera.flash(0x000000, 1000);
+
+        this.input.onTap.addOnce(this.startGame, this);
+    }
+
+    private startGame() {
+        this.game.state.start('game');
     }
 }

@@ -14,6 +14,16 @@ export namespace Images {
 }
 
 export namespace Spritesheets {
+    export class SpritesheetsEggShell1077137 {
+        static getName(): string { return 'egg_shell.[107,71,37,0,0]'; }
+
+        static getPNG(): string { return require('assets/spritesheets/egg_shell.[107,71,37,0,0].png'); }
+        static getFrameWidth(): number { return 107; }
+        static getFrameHeight(): number { return 71; }
+        static getFrameMax(): number { return 37; }
+        static getMargin(): number { return 0; }
+        static getSpacing(): number { return 0; }
+    }
     export class SpritesheetsMetalslugMummy374518 {
         static getName(): string { return 'metalslug_mummy.[37,45,18,0,0]'; }
 
@@ -21,16 +31,6 @@ export namespace Spritesheets {
         static getFrameWidth(): number { return 37; }
         static getFrameHeight(): number { return 45; }
         static getFrameMax(): number { return 18; }
-        static getMargin(): number { return 0; }
-        static getSpacing(): number { return 0; }
-    }
-    export class SpritesheetsEggShell1077137 {
-        static getName(): string { return 'egg_shell.[107, 71,37,0,0]'; }
-
-        static getPNG(): string { return require('assets/spritesheets/egg_shell.[107, 71,37,0,0].png'); }
-        static getFrameWidth(): number { return 107; }
-        static getFrameHeight(): number { return 71; }
-        static getFrameMax(): number { return 37; }
         static getMargin(): number { return 0; }
         static getSpacing(): number { return 0; }
     }

@@ -58,6 +58,8 @@ export default class Boot extends Phaser.State {
            \nSOUND_EXTENSIONS_PREFERENCE. ${SOUND_EXTENSIONS_PREFERENCE}`
         );
 
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
         this.game.state.start('preloader');
     }
 }

@@ -11,6 +11,16 @@ export namespace Images {
 
         static getPNG(): string { return require('assets/images/background_title.png'); }
     }
+    export class ImagesItemsCobblestone {
+        static getName(): string { return 'cobblestone'; }
+
+        static getPNG(): string { return require('assets/images/items/cobblestone.png'); }
+    }
+    export class ImagesItemsFlint {
+        static getName(): string { return 'flint'; }
+
+        static getPNG(): string { return require('assets/images/items/flint.png'); }
+    }
 }
 
 export namespace Spritesheets {

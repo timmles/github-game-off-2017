@@ -11,6 +11,41 @@ export namespace Images {
 
         static getPNG(): string { return require('assets/images/background_title.png'); }
     }
+    export class ImagesHudBarMiddle {
+        static getName(): string { return 'bar-middle'; }
+
+        static getPNG(): string { return require('assets/images/hud/bar-middle.png'); }
+    }
+    export class ImagesHudHealthBarBackgound {
+        static getName(): string { return 'health-bar-backgound'; }
+
+        static getPNG(): string { return require('assets/images/hud/health-bar-backgound.png'); }
+    }
+    export class ImagesHudHealthBarTop {
+        static getName(): string { return 'health-bar-top'; }
+
+        static getPNG(): string { return require('assets/images/hud/health-bar-top.png'); }
+    }
+    export class ImagesHudInventoryCase {
+        static getName(): string { return 'inventory-case'; }
+
+        static getPNG(): string { return require('assets/images/hud/inventory-case.png'); }
+    }
+    export class ImagesHudInventoryLeft {
+        static getName(): string { return 'inventory-left'; }
+
+        static getPNG(): string { return require('assets/images/hud/inventory-left.png'); }
+    }
+    export class ImagesHudInventoryMiddle {
+        static getName(): string { return 'inventory-middle'; }
+
+        static getPNG(): string { return require('assets/images/hud/inventory-middle.png'); }
+    }
+    export class ImagesHudInventoryRight {
+        static getName(): string { return 'inventory-right'; }
+
+        static getPNG(): string { return require('assets/images/hud/inventory-right.png'); }
+    }
     export class ImagesItemsCobblestone {
         static getName(): string { return 'cobblestone'; }
 

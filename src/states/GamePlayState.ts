@@ -49,20 +49,20 @@ export class GamePlayState extends Phaser.State {
 
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_TOPDOWN);
 
-        // health bar
+        this.createHealthBar();
+    }
+
+    public update() {
+        this.bar_sprite.width = this.player.health;
+    }
+
+    private createHealthBar() {
         let health: Phaser.Sprite = this.game.add.sprite(60, 20, Assets.Images.ImagesHudHealthBarBackgound.getName());
         health.addChild(this.game.make.sprite(-12, -10, Assets.Images.ImagesHudHealthBarTop.getName()));
         health.fixedToCamera = true;
 
         this.bar_sprite = new Phaser.TileSprite(this.game, 0, 0, health.width, health.height, Assets.Images.ImagesHudBarMiddle.getName());
         health.addChild(this.bar_sprite);
-
-        console.log(JSON.stringify(this.player.health));
-        console.log(health.width);
-    }
-
-    public update() {
-        this.bar_sprite.width = this.player.health;
     }
 
     private createMap() {

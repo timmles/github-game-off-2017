@@ -1,5 +1,7 @@
 import * as Assets from '../assets';
 import * as AssetUtils from '../utils/assetUtils';
+import {JSON} from '../assets';
+import TilemapsHome = JSON.TilemapsHome;
 
 export default class Preloader extends Phaser.State {
     private preloadBarSprite: Phaser.Sprite = null;
@@ -18,6 +20,8 @@ export default class Preloader extends Phaser.State {
         this.preloadFrameSprite.anchor.setTo(0.5);
 
         this.game.load.setPreloadSprite(this.preloadBarSprite);
+
+        this.game.load.tilemap(TilemapsHome.getName(), TilemapsHome.getJSON(), null, Phaser.Tilemap.TILED_JSON);
 
         AssetUtils.Loader.loadAllAssets(this.game, this.waitForSoundDecoding, this);
     }

@@ -3,6 +3,13 @@ import {Cobblestone} from '../objects/items/Cobblestone';
 import {Flint} from '../objects/items/Flint';
 import {Item} from '../objects/items/Item';
 import {GlobalGameObjects} from '../objects/GlobalGameObjects';
+import {Images, JSON} from '../assets';
+import TilemapsHome = JSON.TilemapsHome;
+import TilemapsGrass = Images.TilemapsGrass;
+import TilemapsWatergrass = Images.TilemapsWatergrass;
+import TilemapsForestTiles = Images.TilemapsForestTiles;
+import TilemapsWater = Images.TilemapsWater;
+import TilemapsRock = Images.TilemapsRock;
 import * as Assets from '../assets';
 
 export class GamePlayState extends Phaser.State {
@@ -17,6 +24,7 @@ export class GamePlayState extends Phaser.State {
     }
 
     public create() {
+        this.createMap();
 
         // create items
         this.collectibles = this.game.add.group();
@@ -55,5 +63,18 @@ export class GamePlayState extends Phaser.State {
 
     public update() {
         this.bar_sprite.width = this.player.health;
+    }
+
+    private createMap() {
+        let map = this.game.add.tilemap(TilemapsHome.getName(), 32, 32, 64, 64);
+        map.addTilesetImage(TilemapsGrass.getName(), TilemapsGrass.getName());
+        map.addTilesetImage(TilemapsWatergrass.getName(), TilemapsWatergrass.getName());
+        map.addTilesetImage(TilemapsForestTiles.getName(), TilemapsForestTiles.getName());
+        map.addTilesetImage(TilemapsWater.getName(), TilemapsWater.getName());
+        map.addTilesetImage(TilemapsRock.getName(), TilemapsRock.getName());
+
+        map.createLayer('Grass').resizeWorld();
+        map.createLayer('Water');
+        map.createLayer('Trees');
     }
 }

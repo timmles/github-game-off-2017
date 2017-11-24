@@ -235,8 +235,10 @@ export class CavemanPlayer extends Phaser.Sprite {
         if (!this.fsm.is(PlayerState.MOUSE_WALK)) {
             this.fsm.go(PlayerState.MOUSE_WALK);
         }
-        this.mouseX = this.game.input.x;
-        this.mouseY = this.game.input.y;
+
+        //  game.input.activePointer.positionDown.x + game.camera.x
+        this.mouseX = this.game.input.x + this.game.camera.x;
+        this.mouseY = this.game.input.y + this.game.camera.y;
 
         if (this.x > this.mouseX) {
             this.scale.setTo(-1, 1);

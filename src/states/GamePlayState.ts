@@ -3,11 +3,14 @@ import {Cobblestone} from '../objects/items/Cobblestone';
 import {Flint} from '../objects/items/Flint';
 import {Item} from '../objects/items/Item';
 import {GlobalGameObjects} from '../objects/GlobalGameObjects';
+import * as Assets from '../assets';
 
 export class GamePlayState extends Phaser.State {
 
     private player: CavemanPlayer;
     private collectibles: Phaser.Group;
+
+    private bar_sprite: Phaser.TileSprite;
 
     public constructor() {
         super();
@@ -36,6 +39,21 @@ export class GamePlayState extends Phaser.State {
         this.player = new CavemanPlayer(this.game, 100, this.game.height - 100);
         this.game.add.existing(this.player);
 
-        this.game.camera.follow(this.player);
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_TOPDOWN);
+
+        // health bar
+        let health: Phaser.Sprite = this.game.add.sprite(60, 20, Assets.Images.ImagesHudHealthBarBackgound.getName());
+        health.addChild(this.game.make.sprite(-12, -10, Assets.Images.ImagesHudHealthBarTop.getName()));
+        health.fixedToCamera = true;
+
+        this.bar_sprite = new Phaser.TileSprite(this.game, 0, 0, health.width, health.height, Assets.Images.ImagesHudBarMiddle.getName());
+        health.addChild(this.bar_sprite);
+
+        console.log(JSON.stringify(this.player.health));
+        console.log(health.width);
+    }
+
+    public update() {
+        this.bar_sprite.width = this.player.health;
     }
 }

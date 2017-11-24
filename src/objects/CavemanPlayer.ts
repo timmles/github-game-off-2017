@@ -38,6 +38,8 @@ export class CavemanPlayer extends Phaser.Sprite {
         super(game, x, y, Assets.Spritesheets.SpritesheetsEggShell1077137.getName(), 0);
 
         this.anchor.setTo(0.5);
+        this.health = this.maxHealth = 128;
+        this.alive = true;
 
         this.fsm = new TypeState.FiniteStateMachine<PlayerState>(PlayerState.IDLE);
         this.fsm.from(PlayerState.IDLE).to(PlayerState.WALK);
